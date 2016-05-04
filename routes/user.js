@@ -21,6 +21,23 @@ router.get('/profile', function(req,res, next ){
   })
 });
 
+router.get('/signup', function(req,res) {
+
+    if (req.user){
+        //redirect if the user exist
+        console.log(req.user);
+
+        //url redirect
+        // exemple profile redirect
+        // return res.redirect ('/profile');
+        return res.redirect ('/');
+
+    }
+
+    res.render('accounts/signup',{ errors: "errore" });
+
+});
+
 router.post('/signup', function(req, res, next ) {
    var user = new User();
 
